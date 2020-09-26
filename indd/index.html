@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Neeta Testing Random PDF</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      overflow: hidden;
+    }
+    #pdf {
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="pdf">
+    <iframe id="iframe" src="pdfs/testpage_1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%"></iframe>
+  </div>
+
+<script>
+
+  // generate random number
+  function getRandomInt(max) {
+    var rand = Math.floor(Math.random() * Math.floor(max));
+    console.log(rand);
+    return rand;
+  }
+  // later: don't hard code this
+  var total = 7; // TOTAL PDFS
+  var x = getRandomInt(total);
+
+  // target html
+  var text = document.getElementById("iframe");
+  text.src = "pdfs/testpage_" + x + ".pdf#toolbar=0&navpanes=0&scrollbar=0";
+
+</script>
+</body>
+
+</html>
