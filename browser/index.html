@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Neeta Testing Browser-Based Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    img {
+      height: 95vh;
+      opacity: 0.5;
+    }
+    .parent {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .image1 {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .image2 {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+    .print {
+      display: none;
+    }
+    @media print {
+      .print {
+        display: inline-block;
+      }
+      a {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <p class="print">We can format very specifically for print / PDF save.</p>
+  <div class="parent">
+    <img class="image1" id="image1" src="bitmap_test_images/0.jpg">
+    <img class= "image2" id="image2" src="bitmap_test_images/1.jpg">
+  </div>
+  <a href="#" onclick="window.print()">Print</a>
+  <a href="#" onclick="generate()">Generate</a>
+  <a href="#">Archive</a>
+
+<script>
+
+  var total = 16; // total number of images
+  var prev, rand;
+  // generate two random, non-repeating numbers
+  function getRandomInt(max) {
+    rand = Math.floor(Math.random() * Math.floor(max));
+    while (prev == rand) {
+      rand = Math.floor(Math.random() * Math.floor(max));
+    }
+    prev = rand;
+    return rand;
+  }
+
+  // target html
+  function generate() {
+    var image1 = document.getElementById("image1");
+    var image2 = document.getElementById("image2");
+    image1.src = "bitmap_test_images/" + getRandomInt(total) + ".jpg";
+    image2.src = "bitmap_test_images/" + getRandomInt(total) + ".jpg";
+  }
+
+
+</script>
+</body>
+
+</html>
